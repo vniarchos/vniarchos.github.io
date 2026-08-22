@@ -6,11 +6,12 @@
    ink        #1A1D23  primary text
    ink-soft   #4B5160  secondary text / meta
    rule       #DDE1E7  hairline dividers
-   accent     #34506E  steel blue — links, active nav, publication titles
-   accent-2   #4C6B5B  muted teal — signature motif + section eyebrows only
-   accent-3   #93502D  warm rust — project/software names (nod to the old
-                        site's color-coded text: names, titles, links each
-                        got their own hue)
+   accent     #2E5C8A  blue — links, active nav, publication titles
+   accent-2   #2F7A5C  green — signature motif + section eyebrows
+   accent-3   #B0501F  rust/orange — project names + subsection titles
+   (nod to the old site's color-coded text: names, titles, and links
+   each got their own hue there — blue titles, maroon names, orange
+   links, green asides)
    ============================================================ */
 
 :root {
@@ -20,11 +21,12 @@
   --ink-soft: #4B5160;
   --ink-faint: #7C8494;
   --rule: #DDE1E7;
-  --accent: #34506E;
-  --accent-soft: #E7ECF1;
-  --accent-2: #4C6B5B;
-  --accent-3: #93502D;
-  --accent-3-soft: #F1E6DE;
+  --accent: #2E5C8A;
+  --accent-soft: #E4EBF3;
+  --accent-2: #2F7A5C;
+  --accent-2-soft: #E1F0E8;
+  --accent-3: #B0501F;
+  --accent-3-soft: #F5E4D6;
   --measure: 42rem;
   --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -252,7 +254,8 @@ h1.page-title {
 }
 
 .lede {
-  font-size: 1.08rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
   color: var(--ink-soft);
   margin: 0 0 2.5rem;
 }
@@ -280,7 +283,7 @@ h3.subsection-title {
   font-size: 1.05rem;
   font-weight: 600;
   margin: 1.75rem 0 0.9rem;
-  color: var(--ink);
+  color: var(--accent-3);
 }
 
 p { margin: 0 0 1rem; }
@@ -310,7 +313,9 @@ ul.plain, ol.plain {
   padding: 0.3rem 0.75rem;
   transition: border-color 0.15s ease;
 }
-.topics li:hover { border-color: var(--accent); }
+.topics li:nth-child(3n+2) { color: var(--accent-2); background: var(--accent-2-soft); }
+.topics li:nth-child(3n+3) { color: var(--accent-3); background: var(--accent-3-soft); }
+.topics li:hover { border-color: currentColor; }
 
 /* project cards */
 .project-grid {
@@ -359,7 +364,7 @@ ol.pubs li::before {
   padding-top: 0.15rem;
 }
 .pub-title { font-weight: 500; color: var(--accent); }
-.pub-meta { color: var(--ink-soft); font-size: 0.92rem; margin-top: 0.2rem; }
+.pub-meta { color: var(--ink); font-size: 0.92rem; margin-top: 0.2rem; }
 .pub-tag {
   font-family: var(--font-mono);
   font-size: 0.82rem;
